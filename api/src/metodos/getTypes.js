@@ -1,26 +1,24 @@
 const { Op } = require("sequelize");
 const axios = require("axios");
 const { Router } = require("express");
-const server = Router();
+const router = Router();
+const { Types } = require("../db");
 
 /* 
 GET /types:
 Obtener todos los tipos de pokemons posibles
 En una primera instancia deberán traerlos desde pokeapi y guardarlos en su propia base de datos y luego ya utilizarlos desde allí*/
 
-server.get("/", async (req, res) => {
-	try {
-	  const getTypes = await axios.get("https://pokeapi.co/api/v2/type");
-	  const allTypes = getTypes.data.results;
-	  //console.log(allTypes);
-	  res.status(200).json(allTypes);
-	} catch (error) {
-	  res.status(400).send(error);
-	}
+const getTypesAll = async () => {
+  const getTypes = await axios.get("https://pokeapi.co/api/v2/type");
+  let allTypes = getTypes.data.results.map((el) => el.name);
+  allTypes.forEach((el) => {
+    Types.findOrCreate({
+      where: { name: el },
+    });
   });
+  allTypes = await Types.findAll();
+  return allTypes;
+};
 
-
-
-
-
-module.exports = server;
+module.exports = { getTypesAll };
