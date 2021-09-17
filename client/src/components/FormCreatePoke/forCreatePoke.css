@@ -1,0 +1,47 @@
+.fondo {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/51/Pokebola-pokeball-png-0.png);
+  background-size: 50%;
+  margin: 20px;
+  background-repeat: no-repeat;
+  height: 900px;
+}
+
+.fondo2 {
+  background-image: url("../../images/pngegg.png");
+  position: relative;
+  left: 1200px;
+  background-size: 25%;
+  margin: 20px;
+  background-repeat: no-repeat;
+  height: 900px;
+}
+
+.formulario {
+  font-size: 20px;
+  font-weight: bolder;
+  color: whitesmoke;
+  text-shadow: 1px 1px 3px rgb(0, 0, 0);
+  position: relative;
+  bottom: 800px;
+}
+
+.cajaTypes {
+  position: relative;
+  left: 650px;
+  background-color: steelblue;
+  width: 400px;
+  text-align: center;
+}
+
+.titleForm {
+  font-size: 50px;
+  position: relative;
+  bottom: 875px;
+  margin-top: -50px;
+  margin-bottom: -50px;
+  letter-spacing: 2px;
+  text-shadow: black 5px 5px 5px;
+  font-family: "Pokemon";
+  -webkit-text-stroke: 2px rgba(59, 91, 166);
+  color: rgb(241, 195, 6);
+}

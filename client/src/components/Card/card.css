@@ -1,0 +1,17 @@
+.cardPoke {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardPoke img {
+  margin: 12px 0px;
+  max-width: 300px;
+  max-height: 300px;
+  text-decoration: none;
+}
+
+.imgCard {
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}

@@ -1,7 +1,5 @@
-const { Op } = require("sequelize");
 const axios = require("axios");
 const { Router } = require("express");
-const router = Router();
 const { Types } = require("../db");
 
 /* 
@@ -11,13 +9,15 @@ En una primera instancia deberán traerlos desde pokeapi y guardarlos en su prop
 
 const getTypesAll = async () => {
   const getTypes = await axios.get("https://pokeapi.co/api/v2/type");
-  let allTypes = getTypes.data.results.map((el) => el.name);
+  let allTypes = getTypes.data.results.map((e) => e.name);
+  //console.lgo(allTypes)
   allTypes.forEach((el) => {
     Types.findOrCreate({
       where: { name: el },
     });
   });
   allTypes = await Types.findAll();
+  //console.log(allTypes)
   return allTypes;
 };
 

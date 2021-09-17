@@ -1,7 +1,5 @@
-const { Op } = require("sequelize");
 const axios = require("axios");
 const { Router } = require("express");
-const router = Router();
 const { Pokemon, Types } = require("../db");
 
 /*
@@ -10,6 +8,9 @@ Obtener un listado de los pokemons desde pokeapi.
 Debe devolver solo los datos necesarios para la ruta principal (imagen, nombre, tipo)
 */
 const getPokemons = async () => {
+  // const fullPokes = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=500");//
+  // const allPokemonsApi = await fullPokes.data.results;
+
   const apiUrl1 = await axios.get("https://pokeapi.co/api/v2/pokemon");
   const apiPokemon1 = await apiUrl1.data.results;
   const apiUrl2 = apiUrl1.data.next;
@@ -19,6 +20,7 @@ const getPokemons = async () => {
   const allPokemonsApi = [...apiPokemon1, ...apiPokemon2];
   //Traer info pokemon ---> id, nombre, tipo, img, atributos(vida, fuerza, defensa, velocidad, altura, peso)
   const pokemonsInfo = [];
+
   for (let i = 0; i < allPokemonsApi.length; i++) {
     const { url } = allPokemonsApi[i];
     const { data } = await axios.get(url);
@@ -26,7 +28,7 @@ const getPokemons = async () => {
       id: data.id,
       name: data.name,
       spriteSrc: data.sprites.other.dream_world.front_default,
-      types: data.types, //preguntar si tengo que especificar más el type!!!
+      types: data.types.map((e) => e.type.name),
       attack: data.stats[1].base_stat,
       defense: data.stats[2].base_stat,
       speed: data.stats[5].base_stat,
@@ -35,11 +37,12 @@ const getPokemons = async () => {
       height: data.height,
     });
   }
+
   return pokemonsInfo;
 };
 
 const getDbAllInfo = async () => {
-  return await Pokemon.findAll({
+  const pokeAux = await Pokemon.findAll({
     include: {
       model: Types,
       attributes: ["name"],
@@ -48,7 +51,22 @@ const getDbAllInfo = async () => {
       },
     },
   });
+  //console.log("ESTOY CONSOLOGEANDO--->",pokeDB[0].types)
+  const pokeDB = pokeAux.map((e) => {
+    return {
+      ...e.get(),
+      types: e.types.map((e) => e.name),
+    };
+  });
+  return pokeDB;
 };
+
+//const dataInfo = infoDataBase.map((breed) => {
+//   return {
+//     ...breed.get(),
+//     temperaments: breed.temperaments.map((t) => t.name),
+//   };
+// });
 
 const getPokeTotal = async () => {
   const api = await getPokemons();

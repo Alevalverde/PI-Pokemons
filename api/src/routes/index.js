@@ -1,9 +1,9 @@
 const { Router } = require("express");
 const router = Router();
-const axios = require("axios");
+
 const { Op } = require("sequelize");
-const { getPokeTotal } = require("../metodos/getPokemons");
-const { getTypesAll } = require("../metodos/getTypes");
+const { getPokeTotal } = require("../methods/getPokemons");
+const { getTypesAll } = require("../methods/getTypes");
 
 //--------GET--------\\
 
@@ -56,7 +56,7 @@ router.post("/pokemons", async (req, res) => {
     hp,
     weight,
     height,
-    type,
+    types,
     createdInDb,
   } = req.body;
 
@@ -71,7 +71,7 @@ router.post("/pokemons", async (req, res) => {
     height,
   });
   const typesDb = await Types.findAll({
-    where: { name: type },
+    where: { name: types },
   });
 
   pokemonCreated.addTypes(typesDb);

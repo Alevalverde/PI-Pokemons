@@ -1,0 +1,92 @@
+.title {
+  margin-top: -20px;
+  margin-bottom: -50px;
+  font-size: 40px;
+  letter-spacing: 2px;
+  font-family: "Pokemon";
+  -webkit-text-stroke: 2px rgba(59, 91, 166);
+  color: rgb(241, 195, 6);
+  -webkit-filter: drop-shadow(5px 10px 5px #222);
+  filter: drop-shadow(5px 10px 5px #222);
+}
+
+.logPoke {
+  max-width: 300px;
+  max-height: 300px;
+  margin-bottom: -50px;
+  margin-left: -1000px;
+  -webkit-filter: drop-shadow(5px 10px 5px #222);
+  filter: drop-shadow(5px 10px 5px #222);
+}
+
+.logPoke:hover {
+  transform: translateY(-2%);
+  -webkit-filter: drop-shadow(5px 10px 5px #222);
+  filter: drop-shadow(15px 20px 10px #222);
+}
+
+.logoBall {
+  transition: all 400ms ease;
+  width: 70px;
+  margin-left: 800px;
+  margin-top: -350px;
+}
+
+.logoBall:hover {
+  transform: translateY(-2%);
+  width: 100px;  
+  -webkit-filter: drop-shadow(5px 10px 5px #222);
+  filter: drop-shadow(15px 20px 10px #222);
+}
+
+.titleCreate {
+  margin-left: 800px;
+  margin-top: 0px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+}
+
+.cards {
+  display: flex;
+  width: 90%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+
+div {
+  font-size: 20px;
+}
+
+.cardsHome {
+  margin-top: 20px;
+  width: 25%;
+  border: 1px solid black;
+  margin-bottom: 16px;
+  background-color: rgba(255, 235, 205, 0.767);
+  border-radius: 15px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  transition: all 400ms ease;
+}
+
+.cardsHome:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2%);
+}
+
+.cajaSelects {
+  background-color: rgb(255, 235, 205, 0.767);
+  border: 1px solid black;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  width: 400px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.cajaSelects:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2%);
+}

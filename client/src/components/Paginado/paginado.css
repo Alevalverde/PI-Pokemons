@@ -1,0 +1,33 @@
+.paginado {
+  font-size: 30px;
+  display: flex;
+  justify-content: center; 
+  
+}
+
+.number {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+  border-radius: 100px;
+  padding: 20px;
+  margin: 15px;
+  cursor: pointer;
+  transition: all 400ms ease;
+  border: black 2px solid;
+  color: aqua;
+}
+
+.number:hover{
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
+  transform: translateY(-2%);
+}
+
+.inToNumber {
+  display: flex;
+  margin-block: -15px;
+  margin-inline: 0px;  
+}

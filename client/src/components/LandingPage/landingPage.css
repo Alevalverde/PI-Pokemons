@@ -1,0 +1,32 @@
+#fondo {
+  position: relative;
+  width: auto;
+  height: 800px;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1920px-International_Pok%C3%A9mon_logo.svg.png);
+  background-size: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-filter: drop-shadow(5px 10px 5px #222);
+  filter: drop-shadow(5px 10px 5px #222);
+}
+
+.cartel{
+  text-shadow: rgba(241, 195, 6) 3px 3px 5px;
+  -webkit-text-stroke: 0.5px rgba(59, 91, 166);
+  color: rgb(59, 91, 166);
+}
+
+.logoIn {
+  transition: all 400ms ease;
+  width: 100px;
+  margin-left: 0px;
+  margin-top: 600px;
+
+}
+
+.logoIn:hover {
+  height: 20px;
+  width: 100px;
+  -webkit-filter: drop-shadow(5px 10px 5px #222);
+  filter: drop-shadow(10px 10px 30px rgb(246, 1, 1));
+}
